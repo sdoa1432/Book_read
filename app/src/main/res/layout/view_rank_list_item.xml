@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/rank_item_serial_num"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/circle_rank_serial_gray"/>
+
+    <TextView
+        android:id="@+id/rank_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@+id/rank_item_serial_num"
+        android:paddingLeft="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/smalldark"
+        android:textSize="14dp"/>
+
+</RelativeLayout>

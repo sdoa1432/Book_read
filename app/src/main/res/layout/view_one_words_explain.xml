@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/explain_booktype"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:textColor="@color/smallgray"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/explain_oneword"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@+id/explain_booktype"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/smalldark"
+        android:textSize="14dp" />
+
+</RelativeLayout>

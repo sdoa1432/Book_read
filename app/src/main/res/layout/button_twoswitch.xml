@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1dp"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/two_switch_left_button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textSize="16dp"
+        android:textColor="#ffffff"
+        android:layout_weight="1"
+        android:padding="0dp"
+        android:layout_margin="0dp"/>
+    <Button
+        android:id="@+id/two_switch_right_button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textSize="16dp"
+        android:textColor="@color/red"
+        android:layout_weight="1"
+        android:padding="0dp"
+        android:layout_margin="0dp"/>
+
+</LinearLayout>

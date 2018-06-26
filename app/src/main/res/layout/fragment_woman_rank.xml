@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <com.yuexun.book_read.view.custom.BookCoverView
+                android:id="@+id/woman_rank_item_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/rank1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <com.yuexun.book_read.view.custom.BookCoverView
+                android:id="@+id/woman_rank_item_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/rank2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <com.yuexun.book_read.view.custom.BookCoverView
+                android:id="@+id/woman_rank_item_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/rank3" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.yuexun.book_read.view.custom.RankListItemView
+        android:id="@+id/woman_rank_item_4"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <com.yuexun.book_read.view.custom.RankListItemView
+        android:id="@+id/woman_rank_item_5"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <com.yuexun.book_read.view.custom.RankListItemView
+        android:id="@+id/woman_rank_item_6"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <com.yuexun.book_read.view.custom.RankListItemView
+        android:id="@+id/woman_rank_item_7"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <com.yuexun.book_read.view.custom.RankListItemView
+        android:id="@+id/woman_rank_item_8"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+</LinearLayout>
