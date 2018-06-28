@@ -10,8 +10,12 @@
         android:gravity="center"
         android:text="个人中心"
         android:textColor="@color/dark"
-        android:background="@color/colorPrimary"
         android:textSize="23dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divide_gray" />
 
     <RelativeLayout
         android:id="@+id/user"

@@ -12,8 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary">
+            android:layout_height="wrap_content">
 
             <com.yuexun.book_read.view.custom.TwoSwitvhButton
                 android:id="@+id/title_two_button"
@@ -36,12 +35,17 @@
                 android:id="@+id/library"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_toLeftOf="@+id/main_search"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@+id/main_search"
                 android:background="@mipmap/bookcase" />
 
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/choiceness_gray" />
 
         <cn.bingoogolapple.bgabanner.BGABanner
             android:id="@+id/main_banner"
@@ -73,6 +77,12 @@
                 android:textSize="17dp" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/choiceness_gray" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -144,6 +154,11 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/divide_gray" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -214,6 +229,10 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/divide_gray" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -263,8 +282,8 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/smallgray" />
+            android:layout_height="10dp"
+            android:background="@color/divide_gray" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -319,6 +338,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="130dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:orientation="horizontal">

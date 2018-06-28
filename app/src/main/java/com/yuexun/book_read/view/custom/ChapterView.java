@@ -50,5 +50,4 @@ public class ChapterView extends RelativeLayout {
         setchaptername(chapterInfoModel.chapterTitle);
         setVip(chapterInfoModel.isVip);
     }
-
 }

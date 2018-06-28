@@ -21,7 +21,6 @@
                 android:layout_height="40dp"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:background="@color/colorPrimary"
                 android:text="小说名字"
                 android:textColor="@color/dark"
                 android:textSize="23dp" />
@@ -29,7 +28,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/smallgray" />
+                android:background="@color/divide_gray" />
 
             <ListView
                 android:id="@+id/chapter_list"
@@ -47,6 +46,7 @@
                 android:layout_height="30dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <Button

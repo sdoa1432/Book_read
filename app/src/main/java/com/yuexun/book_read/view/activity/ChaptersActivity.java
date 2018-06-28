@@ -76,6 +76,7 @@ public class ChaptersActivity extends AppCompatActivity {
         initchapterdata(1);
     }
 
+//    private void initchapterdata(int page) {
     private void initchapterdata(int page) {
         Log.i("yc.zhang", "page : " + page);
         OkHttpUtils.post()

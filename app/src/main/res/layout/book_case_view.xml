@@ -1,8 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="130dp"
-    android:padding="5dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/bookimg"
@@ -23,8 +23,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:ellipsize="end"
-            android:gravity="center_vertical"
+            android:gravity="bottom||left"
             android:maxLines="1"
+            android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:textColor="@color/dark"
             android:textSize="20dp" />
@@ -35,8 +36,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:ellipsize="end"
-            android:gravity="center_vertical"
+            android:gravity="bottom||left"
             android:maxLines="2"
+            android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:textColor="@color/midgray"
             android:textSize="18dp" />
@@ -47,10 +49,10 @@
     <ImageView
         android:id="@+id/book_del"
         android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:scaleType="center"
         android:src="@mipmap/trash"
-        android:layout_height="match_parent"
-        android:visibility="invisible"
-        android:layout_weight="1" />
+        android:visibility="invisible" />
 
 </LinearLayout>

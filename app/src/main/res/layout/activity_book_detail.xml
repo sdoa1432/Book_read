@@ -17,11 +17,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:text="书籍详情"
                 android:textColor="@color/dark"
-                android:textSize="23dp" />
+                android:textSize="18dp" />
 
             <View
                 android:layout_width="match_parent"
@@ -94,6 +93,7 @@
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
+                    android:background="@drawable/background_book_detail_start_read"
                     android:text="开始阅读"
                     android:textSize="18dp" />
 
@@ -103,6 +103,7 @@
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
+                    android:background="@drawable/background_book_detail_add_bookcase"
                     android:text="加入书架"
                     android:textSize="18dp" />
 
@@ -111,9 +112,10 @@
             <TextView
                 android:id="@+id/detail_book_introduce"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:ellipsize="end"
-                android:maxLines="4"
+                android:gravity="center_vertical"
+                android:maxLines="2"
                 android:padding="10dp"
                 android:text="    这里是简介...\n    这里是简介...\n    这里是简介...\n    这里是简介\ns"
                 android:textSize="14dp" />
@@ -121,11 +123,11 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:background="@color/smallgray" />
+                android:background="@color/divide_gray" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:text="目录"
                 android:textColor="@color/dark"
