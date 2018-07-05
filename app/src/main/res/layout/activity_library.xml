@@ -14,128 +14,198 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="46dp"
             android:gravity="center"
             android:text="书库"
-            android:background="@color/colorPrimary"
             android:textColor="@color/dark"
-            android:textSize="23dp" />
+            android:textSize="20dp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#d1caca" />
 
-        <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="25dp"-->
-        <!--android:paddingLeft="5dp"-->
-        <!--android:text="类型"-->
-        <!--android:textColor="@color/gray"-->
-        <!--android:textSize="18dp" />-->
-
-
-        <!--<com.zhy.view.flowlayout.TagFlowLayout-->
-        <!--android:id="@+id/library_type"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="5dp"-->
-        <!--zhy:max_select="1" />-->
-
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:paddingLeft="5dp"
-            android:text="分类"
-            android:textColor="@color/gray"
-            android:textSize="18dp" />
-
-
-        <com.zhy.view.flowlayout.TagFlowLayout
-            android:id="@+id/library_classify"
-            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            zhy:max_select="1" />
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="center"
+                android:src="@mipmap/classify" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:layout_toRightOf="@+id/img"
+                android:gravity="bottom"
+                android:padding="0dp"
+                android:text="测试"
+                android:textColor="@color/dark"
+                android:textSize="18dp" />
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:layout_toRightOf="@+id/img"
+                zhy:max_select="1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:scaleType="center"
+                android:src="@mipmap/type" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_toRightOf="@+id/img"
+                android:gravity="bottom"
+                android:text="分类"
+                android:textColor="@color/dark"
+                android:textSize="18dp" />
+
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/library_classify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_toRightOf="@+id/img"
+                zhy:max_select="1" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:scaleType="center"
+                android:src="@mipmap/progress" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_toRightOf="@+id/img"
+                android:gravity="bottom"
+                android:text="进度"
+                android:textColor="@color/dark"
+                android:textSize="18dp" />
+
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/library_updatestatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_toRightOf="@+id/img"
+                zhy:max_select="1" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:scaleType="center"
+                android:src="@mipmap/attribute" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_toRightOf="@+id/img"
+                android:gravity="bottom"
+                android:text="属性"
+                android:textColor="@color/dark"
+                android:textSize="18dp" />
+
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/library_property"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_toRightOf="@+id/img"
+                zhy:max_select="1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:scaleType="center"
+                android:src="@mipmap/sorting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_toRightOf="@+id/img"
+                android:gravity="bottom"
+                android:text="排序"
+                android:textColor="@color/dark"
+                android:textSize="18dp" />
+
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/library_sort"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_toRightOf="@+id/img"
+                zhy:max_select="1" />
+        </RelativeLayout>
 
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#d1caca" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:paddingLeft="5dp"
-            android:text="进度"
-            android:textColor="@color/gray"
-            android:textSize="18dp" />
-
-
-        <com.zhy.view.flowlayout.TagFlowLayout
-            android:id="@+id/library_updatestatus"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            zhy:max_select="1" />
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#d1caca" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:paddingLeft="5dp"
-            android:text="属性"
-            android:textColor="@color/gray"
-            android:textSize="18dp" />
-
-
-        <com.zhy.view.flowlayout.TagFlowLayout
-            android:id="@+id/library_property"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            zhy:max_select="1" />
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#d1caca" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:paddingLeft="5dp"
-            android:text="排序"
-            android:textColor="@color/gray"
-            android:textSize="18dp" />
-
-
-        <com.zhy.view.flowlayout.TagFlowLayout
-            android:id="@+id/library_sort"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            zhy:max_select="1" />
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="8dp"
             android:background="#d1caca" />
 
         <ListView
             android:id="@+id/lirary_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="@null"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:divider="@null" />
 
         <View
             android:layout_width="match_parent"
@@ -146,9 +216,9 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <Button

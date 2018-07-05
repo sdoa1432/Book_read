@@ -34,14 +34,12 @@ public class TwoSwitvhButton extends LinearLayout {
         left = (Button) findViewById(R.id.two_switch_left_button);
         right = (Button) findViewById(R.id.two_switch_right_button);
         left.setBackground(getResources().getDrawable(R.drawable.background_twoswitch_leftbutton_shape_red));
-        left.setTextColor(R.color.white);
         right.setBackground(getResources().getDrawable(R.drawable.background_twoswitch_rightbutton_shape_white));
-        right.setTextColor(R.color.red);
         setLeftText("男生");
         setRightText("女生");
         setBackground(R.drawable.background_twoswitch);
-        setLeftListener(null);
-        setRightListener(null);
+//        setLeftListener(null);
+//        setRightListener(null);
     }
 
     public TwoSwitvhButton(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -59,9 +57,9 @@ public class TwoSwitvhButton extends LinearLayout {
             public void onClick(View v) {
                 type = 1;
                 left.setBackground(getResources().getDrawable(R.drawable.background_twoswitch_leftbutton_shape_white));
-                left.setTextColor(R.color.red);
+                left.setTextColor(getResources().getColor(R.color.red));
                 right.setBackground(getResources().getDrawable(R.drawable.background_twoswitch_rightbutton_shape_red));
-                right.setTextColor(R.color.white);
+                right.setTextColor(getResources().getColor(R.color.white));
                 if (listener != null)
                     listener.onClick(v);
             }
@@ -75,9 +73,9 @@ public class TwoSwitvhButton extends LinearLayout {
             public void onClick(View v) {
                 type = 0;
                 left.setBackground(getResources().getDrawable(R.drawable.background_twoswitch_leftbutton_shape_red));
-                left.setTextColor(R.color.white);
+                left.setTextColor(getResources().getColor(R.color.white));
                 right.setBackground(getResources().getDrawable(R.drawable.background_twoswitch_rightbutton_shape_white));
-                right.setTextColor(R.color.red);
+                right.setTextColor(getResources().getColor(R.color.red));
                 if (listener != null)
                     listener.onClick(v);
             }

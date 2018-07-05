@@ -3,9 +3,7 @@
     android:id="@+id/text"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
-    android:background="@drawable/background_library_tag"
+    android:layout_marginLeft="8dp"
     android:text="Helloworld"
-    android:padding="2dp"
-    android:textSize="12dp"
-    android:textColor="@color/gray" />
+    android:textColor="@color/gray"
+    android:textSize="18dp" />

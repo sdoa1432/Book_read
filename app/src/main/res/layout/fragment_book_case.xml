@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="45dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -16,7 +16,7 @@
             android:layout_centerHorizontal="true"
             android:text="书架"
             android:textColor="@color/dark"
-            android:textSize="23dp" />
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/book_case_edit"
@@ -35,7 +35,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/divide_gray" />
+        android:background="@color/smallgray" />
 
     <ScrollView
         android:id="@+id/book_case_scroll"

@@ -35,7 +35,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private TagFlowLayout history, recommend;
     private Button change, delete;
-    private ImageView search, back;
+    private ImageView search/*, back*/;
     private EditText search_edit;
     private String[] historylist;
     private Set<String> historysave;
@@ -56,7 +56,7 @@ public class SearchActivity extends AppCompatActivity {
         search = findViewById(R.id.search);
         change = findViewById(R.id.change);
         delete = findViewById(R.id.delete);
-        back = findViewById(R.id.back);
+//        back = findViewById(R.id.back);
         search_edit = findViewById(R.id.search_edit);
 
     }
@@ -95,7 +95,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String keyword = search_edit.getText().toString();
                 if (keyword.equals("")) {
-                    Toast.makeText(MyApplication.getContext(),"输入为空，请输入",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyApplication.getContext(), "输入为空，请输入", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 historysave.add(keyword);
@@ -129,12 +129,12 @@ public class SearchActivity extends AppCompatActivity {
                 initHistoryData();
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
         downloadData();
     }
 

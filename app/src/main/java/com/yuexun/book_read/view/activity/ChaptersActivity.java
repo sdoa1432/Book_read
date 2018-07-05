@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.yuexun.book_read.MyApplication;
@@ -38,6 +39,7 @@ public class ChaptersActivity extends AppCompatActivity {
     private ListView chapters;
     private Button result_previous, result_next;
     private TextView result_page;
+    private ScrollView scrollView;
     private int pageindex = 1;
     private int pagecount = 1;
     private List<ChapterInfoModel> chapterInfoModels;
@@ -56,6 +58,7 @@ public class ChaptersActivity extends AppCompatActivity {
         result_next = findViewById(R.id.result_next);
         result_previous = findViewById(R.id.result_previous);
         result_page = findViewById(R.id.result_page);
+        scrollView = findViewById(R.id.scrollView);
 
         title.setText(mBookName);
         result_next.setOnClickListener(new View.OnClickListener() {
@@ -73,10 +76,71 @@ public class ChaptersActivity extends AppCompatActivity {
             }
         });
 
-        initchapterdata(1);
+//        initchapterdata(1);
     }
 
-//    private void initchapterdata(int page) {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("yc.zhang", "get chapters");
+        pageOffset = 0;
+        chapterInfoModels.clear();
+        initAllChapterData(1);
+    }
+
+    int pageOffset;
+
+    private void initAllChapterData(final int page) {
+        OkHttpUtils.post()
+                .url(DataConstants.CONNECT_IP + DataConstants.API_BOOK_CHAPTERS)
+                .addParams("bookId", mBookId + "")
+                .addParams("page", page + "")
+                .tag(DataConstants.API_BOOK_CHAPTERS)
+                .build()
+                .connTimeOut(20 * 1000)
+                .execute(new Callback() {
+                    @Override
+                    public Object parseNetworkResponse(Response response) throws Exception {
+                        String s = response.body().string();
+                        JSONObject jsonObject = new JSONObject(s);
+//                        Log.i("yc.zhang", jsonObject.toString());
+                        if (jsonObject.getInt("code") == 200) {
+                            pagecount = jsonObject.optInt("pages", 1);
+                            JSONArray chapters = jsonObject.getJSONArray("data");
+                            for (int i = 0; i < chapters.length(); i++) {
+                                ChapterInfoModel chapterInfoModel = new ChapterInfoModel();
+                                chapterInfoModel.chapterId = chapters.getJSONObject(i).getInt("chapterId");
+                                chapterInfoModel.chapterTitle = chapters.getJSONObject(i).getString("chapterTitle");
+                                if (chapters.getJSONObject(i).optInt("isVip", 0) == 1) {
+                                    chapterInfoModel.isVip = true;
+                                } else {
+                                    chapterInfoModel.isVip = false;
+                                }
+                                chapterInfoModels.add(chapterInfoModel);
+                            }
+                            pageOffset++;
+                        }
+                        if (pageOffset <= pagecount) {
+                            initAllChapterData(pageOffset);
+                        } else {
+                            show.sendEmptyMessage(0);
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e) {
+                        Log.i("yc.zhang", e.getMessage());
+                        initAllChapterData(pageOffset);
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Object o) {
+
+                    }
+                });
+    }
+
     private void initchapterdata(int page) {
         Log.i("yc.zhang", "page : " + page);
         OkHttpUtils.post()
@@ -124,6 +188,7 @@ public class ChaptersActivity extends AppCompatActivity {
                 });
     }
 
+
     private ChapterListAdapter chapterListAdapter;
 
     Handler show = new Handler() {
@@ -153,6 +218,12 @@ public class ChaptersActivity extends AppCompatActivity {
                 result_next.setClickable(true);
                 result_previous.setClickable(true);
             }
+            scrollView.post(new Runnable() {
+                @Override
+                public void run() {
+                    scrollView.scrollTo(0, 0);
+                }
+            });
         }
     };
 }

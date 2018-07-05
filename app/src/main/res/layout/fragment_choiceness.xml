@@ -16,11 +16,11 @@
 
             <com.yuexun.book_read.view.custom.TwoSwitvhButton
                 android:id="@+id/title_two_button"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="8dp" />
 
             <Button
                 android:id="@+id/main_search"
@@ -53,30 +53,28 @@
             android:layout_width="match_parent"
             android:layout_height="160dp" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ranking"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical">
+            android:layout_height="50dp">
 
             <ImageView
                 android:id="@+id/menu1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
                 android:src="@mipmap/ranking" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/menu1"
                 android:gravity="center"
                 android:text="人气榜单"
                 android:textColor="#000000"
                 android:textSize="17dp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"

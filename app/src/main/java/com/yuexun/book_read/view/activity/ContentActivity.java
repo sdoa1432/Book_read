@@ -31,6 +31,7 @@ import com.yuexun.book_read.MyApplication;
 import com.yuexun.book_read.R;
 import com.yuexun.book_read.control.DataConstants;
 import com.yuexun.book_read.control.SpfControl;
+import com.yuexun.book_read.utils.BrightnessUtil;
 import com.yuexun.book_read.view.custom.ContentPageView;
 import com.yuexun.book_read.view.custom.factory.ContentPageFactory;
 import com.yuexun.book_read.view.dialog.PageModeDialog;
@@ -137,8 +138,6 @@ public class ContentActivity extends AppCompatActivity {
 
         initListenter();
 
-        initcontent(mchapterId, false);
-
 //        testcontent();
 
 //        title = findViewById(R.id.chapter_title);
@@ -227,10 +226,10 @@ public class ContentActivity extends AppCompatActivity {
             @Override
             public void changeSystemBright(Boolean isSystem, float brightness) {
                 if (!isSystem) {
-//                    BrightnessUtil.setBrightness(ReadActivity.this, brightness);
+                    BrightnessUtil.setBrightness(ContentActivity.this, brightness);
                 } else {
-//                    int bh = BrightnessUtil.getScreenBrightness(ReadActivity.this);
-//                    BrightnessUtil.setBrightness(ReadActivity.this, bh);
+                    int bh = BrightnessUtil.getScreenBrightness(ContentActivity.this);
+                    BrightnessUtil.setBrightness(ContentActivity.this, bh);
                 }
             }
 
@@ -311,7 +310,9 @@ public class ContentActivity extends AppCompatActivity {
         if (!isShow) {
             hideSystemUI();
         }
+        initcontent(mchapterId, false);
     }
+
 
     @Override
     protected void onStop() {
@@ -391,7 +392,12 @@ public class ContentActivity extends AppCompatActivity {
         );
     }
 
+    private boolean getDataStatus = false;
+
     private void initcontent(int chapterId, final boolean islast) {
+        if (getDataStatus)
+            return;
+        getDataStatus = true;
         OkHttpUtils.getInstance().cancelTag(DataConstants.API_BOOK_CONTENT);
         OkHttpUtils.post()
                 .url(DataConstants.CONNECT_IP + DataConstants.API_BOOK_CONTENT)
@@ -414,17 +420,19 @@ public class ContentActivity extends AppCompatActivity {
                             contentPageFactory.setChapterName(mchaptertitle);
                             contentPageFactory.setContent(Html.fromHtml(contentString).toString(), islast);
                         }
+                        getDataStatus = false;
                         return null;
                     }
 
                     @Override
                     public void onError(Call call, Exception e) {
-
+                        contentPageFactory.setContent("未获取到本章内容，请检查网络后重试", islast);
+                        getDataStatus = false;
                     }
 
                     @Override
                     public void onResponse(Call call, Object o) {
-
+                        getDataStatus = false;
                     }
                 });
     }

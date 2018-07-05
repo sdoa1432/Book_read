@@ -7,16 +7,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.library.AutoFlowLayout;
+import com.example.library.FlowAdapter;
 import com.yuexun.book_read.MyApplication;
 import com.yuexun.book_read.R;
 import com.yuexun.book_read.control.DataConstants;
 import com.yuexun.book_read.control.callback.OkHttpCallback;
 import com.yuexun.book_read.model.BookModel;
+import com.yuexun.book_read.utils.DisplayUtils;
 import com.yuexun.book_read.utils.Utils;
 import com.yuexun.book_read.view.adapter.BookMsgListAdapter;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -34,7 +39,7 @@ import okhttp3.Response;
 
 public class LibraryActivity extends AppCompatActivity {
 
-    private TagFlowLayout /*type,*/ classify, updateStatus, property, sort;
+    private TagFlowLayout /*type,*/ classify, updateStatus, property, sort, test;
     private Button result_previous, result_next;
     private TextView result_page;
     private ScrollView scrollView;
@@ -48,6 +53,7 @@ public class LibraryActivity extends AppCompatActivity {
     private String[] propertyNumList;
     private String[] sortValueList;
     private String[] sortNumList;
+    private String[] testlist;
     private ListView librarylistview;
     private LayoutInflater mInflater;
     private List<BookModel> bookMsgModels;
@@ -72,6 +78,37 @@ public class LibraryActivity extends AppCompatActivity {
         result_previous = findViewById(R.id.result_previous);
         result_page = findViewById(R.id.result_page);
         scrollView = findViewById(R.id.scrollView);
+        test = findViewById(R.id.test);
+
+        testlist = new String[]{"测试1", "测试2", "测试3"};
+        TagAdapter<String> testAdapter = new TagAdapter<String>(testlist) {
+            @Override
+            public View getView(FlowLayout parent, int position, String s) {
+                TextView tv = (TextView) mInflater.inflate(R.layout.item_library_tag, test, false);
+                if (position == 0) {
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    params.setMargins(DisplayUtils.dp2px(MyApplication.getContext(), 44), 0, 0, 0);
+                    tv.setLayoutParams(params);
+                }
+                tv.setText(s);
+                return tv;
+            }
+
+            @Override
+            public void onSelected(int position, View view) {
+                super.onSelected(position, view);
+                ((TextView) view).setTextColor(getResources().getColor(R.color.red));
+
+            }
+
+            @Override
+            public void unSelected(int position, View view) {
+                super.unSelected(position, view);
+                ((TextView) view).setTextColor(getResources().getColor(R.color.gray));
+            }
+        };
+        testAdapter.setSelectedList(0);
+        test.setAdapter(testAdapter);
 
         result_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,34 +159,16 @@ public class LibraryActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-//            TagAdapter<String> typeAdapter = new TagAdapter<String>(typeValueList) {
-//                @Override
-//                public View getView(FlowLayout parent, int position, String s) {
-//                    TextView tv = (TextView) mInflater.inflate(R.layout.tag_library, type, false);
-//                    tv.setText(s);
-//                    return tv;
-//                }
-//
-//                @Override
-//                public void onSelected(int position, View view) {
-//                    super.onSelected(position, view);
-//                    ((TextView) view).setTextColor(getResources().getColor(R.color.red));
-//                }
-//
-//                @Override
-//                public void unSelected(int position, View view) {
-//                    super.unSelected(position, view);
-//                    ((TextView) view).setTextColor(getResources().getColor(R.color.gray));
-//                }
-//            };
-//            typeAdapter.setSelectedList(0);
-//            type.setAdapter(typeAdapter);
-//            type.setOnTagClickListener(listener);
 
             TagAdapter<String> classifyAdapter = new TagAdapter<String>(classifyValueList) {
                 @Override
                 public View getView(FlowLayout parent, int position, String s) {
-                    TextView tv = (TextView) mInflater.inflate(R.layout.tag_library, classify, false);
+                    TextView tv = (TextView) mInflater.inflate(R.layout.item_library_tag, test, false);
+                    if (position == 0) {
+                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        params.setMargins(DisplayUtils.dp2px(MyApplication.getContext(), 44), 0, 0, 0);
+                        tv.setLayoutParams(params);
+                    }
                     tv.setText(s);
                     return tv;
                 }
@@ -242,7 +261,7 @@ public class LibraryActivity extends AppCompatActivity {
             sort.setAdapter(sortAdapter);
             sort.setOnTagClickListener(listener);
 
-            scrollView.scrollTo(0,0);
+            scrollView.scrollTo(0, 0);
             initLibrarylist(pageindex);
         }
     };

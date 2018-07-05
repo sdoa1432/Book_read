@@ -62,7 +62,7 @@ public class ChoicenessFragment extends Fragment {
             hot_wordsExplainView5, hot_wordsExplainView6, first_wordsExplainView1, first_wordsExplainView2, first_wordsExplainView3;
     private BookCoverView bookCoverView1, bookCoverView2, bookCoverView3, active_demand_BookCover_1, active_demand_BookCover_2,
             active_demand_BookCover_3, active_demand_BookCover_4, active_demand_BookCover_5, active_demand_BookCover_6;
-    private LinearLayout ranking;
+    private RelativeLayout ranking;
     private Button library;
     private Button main_search;
 
